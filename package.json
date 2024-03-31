@@ -11,6 +11,7 @@
   "dependencies": {
     "@amap/amap-jsapi-loader": "^1.0.1",
     "@solidjs/router": "^0.13.1",
+    "@studio-freight/lenis": "^1.0.42",
     "solid-icons": "^1.1.0",
     "solid-js": "^1.8.15"
   },
