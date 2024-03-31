@@ -1,5 +1,5 @@
 import { createSignal, onMount, For } from "solid-js"
-
+import tab1Img from "../../../assets/time.png"
 import tab2Img from "../../../assets/Spatiality.png"
 import tab3Img from "../../../assets/Authoritativeness.png"
 
@@ -10,19 +10,20 @@ const Source = () => {
 
   const sources = [
     {
+      name: "权威性",
+      img: tab3Img,
+      desc: "本项目所用数据均来源于由世界气象组织WMO主持的s2s项目官网，来源于11个不同国家的官方气象预报模型。"
+    },
+    {
+      
       name: "时间尺度",
-      img: tab2Img,
-      desc: "数据集涵盖了从2017-2023的季节内至季节尺度，6年的长时期数据为模型的准确度奠定坚实基础。"
+      img: tab1Img,
+      desc: "数据集涵盖了从2017-2022的季节内至季节尺度，5年的长时期数据为模型的准确度奠定坚实基础。"
     },
     {
       name: "空间尺度",
       img: tab2Img,
       desc: "主要采用了西北太平洋海域，涵盖南海地区的（0°-30°N,100°E-180°E）区域，该片海域是全世界台风最频繁的地区之一，为模型的训练提供大量的台风案例，大大提高了方案的可行性"
-    },
-    {
-      name: "权威性",
-      img: tab3Img,
-      desc: "本项目所用数据均来源于由世界气象组织WMO主持的s2s项目官网，来源于11个不同国家的官方气象预报模型。"
     },
   ]
 
