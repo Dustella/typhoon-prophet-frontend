@@ -2,7 +2,7 @@ import { FaRegularCircleDot, FaRegularCircle, FaSolidAngleDown, FaSolidAngleUp }
 import { createSignal, onMount, For, Show } from "solid-js"
 
 import exampleImg from "../../../assets/Spatiality.png"
-
+import unet from "../../../assets/Unet.jpg"
 
 
 const Index = () => {
@@ -13,20 +13,20 @@ const Index = () => {
     {
       label: "第一代模型",
       img: exampleImg,
-      name: "Model A",
-      desc: "这是Model A的描述信息",
+      name: "Minisegnet自设计模型",
+      desc: "第一代的模型较为简单，先在编码器里使用了两层卷积+两次池化，再在解码器中进行两次的反卷积，从而提取学习图像的特征。",
     },
     {
       label: "第二代模型",
-      img: exampleImg,
-      name: "Model B",
-      desc: "这是Model B的描述信息",
+      img: unet,
+      name: "UNet模型",
+      desc: "在进行了第一次的调整之后，我们选择了标准的UNet模型作为第二代模型。",
     },
     {
       label: "第三代模型",
       img: exampleImg,
       name: "Model C",
-      desc: "这是Model C的描述信息",
+      desc: "考虑到台风预测的发展与时间也有关系，于是加入了时间输入，但是UNet在加入时间输入后容易过拟合，于是重新设计了新的模型。新的模型",
     },
   ]
 

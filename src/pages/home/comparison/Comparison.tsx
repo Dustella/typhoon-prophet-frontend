@@ -1,7 +1,15 @@
 import { createSignal, For } from "solid-js"
 import { FaSolidAngleLeft, FaSolidAngleRight } from 'solid-icons/fa'
 
-import exampleImg from "../../../assets/Spatiality.png"
+import cma from "../../../assets/examples/cma.png"
+import eccc from "../../../assets/examples/eccc.png"
+import ecmwf from "../../../assets/examples/ecmwf.png"
+import isac from "../../../assets/examples/isac.png"
+import kma from "../../../assets/examples/kma.png"
+import ncep from "../../../assets/examples/ncep.png"
+import ukom from "../../../assets/examples/ukmo.png"
+import obs from "../../../assets/examples/obs.png"
+import inception from "../../../assets/examples/inception.png"
 
 const Index = () => {
   const [cur, setCur] = createSignal<number>(0)
@@ -9,58 +17,42 @@ const Index = () => {
   const compare = [
     {
       label: "实际情况",
-      img: exampleImg,
+      img: obs,
     },
     {
-      label: "集成预测结果",
-      img: exampleImg,
+      label: "集成预报结果",
+      img: inception,
     },
   ]
 
   const other = [
     {
-      label: "BOM",
-      img: exampleImg,
+      label: "CMA模型预报结果",
+      img: cma,
     },
     {
-      label: "CMA",
-      img: exampleImg,
+      label: "ECCC模型预报结果",
+      img: eccc,
     },
     {
-      label: "ECCC",
-      img: exampleImg,
+      label: "ECMWF模型预报结果",
+      img: ecmwf,
     },
     {
-      label: "ECMWF",
-      img: exampleImg,
+      label: "ISAC模型预报结果",
+      img: isac,
     },
     {
-      label: "HMCR",
-      img: exampleImg,
+      label: "KMA模型预报结果",
+      img: kma,
     },
     {
-      label: "ISAC",
-      img: exampleImg,
+      label: "NCEP模型预报结果",
+      img: ncep,
     },
     {
-      label: "JMA",
-      img: exampleImg,
-    },
-    {
-      label: "KMA",
-      img: exampleImg,
-    },
-    {
-      label: "METFR",
-      img: exampleImg,
-    },
-    {
-      label: "NCEP",
-      img: exampleImg,
-    },
-    {
-      label: "UKOM",
-      img: exampleImg,
+      label: "UKOM模型预报结果",
+      img: ukom,
     },
   ]
 

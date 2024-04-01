@@ -8,8 +8,8 @@ const Index = () => {
       </video>
       <div class="h-full flex flex-col items-center justify-center text-white">
         <span class="text-3xl py-6">季节内至季节尺度</span>
-        <h1 class="text-5xl font-bold">台风集成预测系统</h1>
-        <p class="py-6">让台风预测“更”准确</p>
+        <h1 class="text-5xl font-bold">台风集成预报系统</h1>
+        <p class="py-6">让台风预报“更”准确</p>
       </div>
     </div>
   )
