@@ -11,6 +11,7 @@ export const Footer = () => {
           <a class="link link-hover" href="https://www.nuist.edu.cn/" target="_blank">南京信息工程大学</a>
           <a class="link link-hover" href="http://data.cma.cn" target="_blank">中国气象数据服务中心</a>
           <a class="link link-hover" href="https://wmo.int/" target="_blank">世界气象组织</a>
+          <a class="link link-hover" href="http://www.s2sprediction.net/" target="_blank">S2S Project</a>
         </nav>
         <nav class="grid grid-flow-col gap-4">
           <img src={DatabaseLogo} class="w-6 h-6 fill-current" alt="database-logo" />
