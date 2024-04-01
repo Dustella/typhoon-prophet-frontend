@@ -51,7 +51,7 @@ const Index = () => {
       img: ncep,
     },
     {
-      label: "UKOM模型预报结果",
+      label: "UKMO模型预报结果",
       img: ukom,
     },
   ]
