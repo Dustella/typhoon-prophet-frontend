@@ -54,7 +54,7 @@ const Index = () => {
     map?.destroy();
   });
 
-  return <div id="amap-container" class="p-0 m-0 w-full h-screen"></div>;
+  return <div id="amap-container" class="p-0 m-0 w-full h-full"></div>;
 };
 
 export default Index;
