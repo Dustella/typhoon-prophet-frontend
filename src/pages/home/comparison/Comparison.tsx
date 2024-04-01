@@ -65,7 +65,7 @@ const Index = () => {
   }
 
   return (
-    <div class="h-screen bg-slate-800">
+    <div class="min-h-screen bg-slate-800">
       <div class="h-full flex flex-col items-center text-white">
         <div class="flex pt-8 mb-4">
           <div class="flex flex-col">
@@ -75,7 +75,7 @@ const Index = () => {
                   <div class="p-4">
                     <div class="p-2 text-center">{item.label}</div>
                     <div>
-                      <img class="w-[243px] h-[93px] object-cover" src={item.img} alt="#" />
+                      <img class="w-[489px] h-[194px] object-cover" src={item.img} alt="#" />
                     </div>
                   </div>
                 )
@@ -84,18 +84,18 @@ const Index = () => {
           </div>
           <div class="flex items-center px-4">
             {/* carousel */}
-            <button onClick={handlePrev}>
-              <FaSolidAngleLeft />
-            </button>
             <div class="p-4">
               <div class="p-2 text-center">{other[cur()].label}</div>
-              <div>
-                <img class="w-[243px] h-[93px] object-cover" src={other[cur()].img} alt="#" />
+              <div class="flex items-center">
+                <button class="p-2" onClick={handlePrev}>
+                  <FaSolidAngleLeft />
+                </button>
+                <img class="w-[489px] h-[194px] object-cover" src={other[cur()].img} alt="#" />
+                <button class="p-2" onClick={handleNext} >
+                  <FaSolidAngleRight />
+                </button>
               </div>
             </div>
-            <button onClick={handleNext} >
-             <FaSolidAngleRight />
-            </button>
           </div>
         </div>
         <div class="p-6">
