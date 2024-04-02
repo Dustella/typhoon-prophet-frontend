@@ -11,9 +11,6 @@ dependencies:
   '@solidjs/router':
     specifier: ^0.13.1
     version: 0.13.1(solid-js@1.8.16)
-  '@studio-freight/lenis':
-    specifier: ^1.0.42
-    version: 1.0.42
   solid-icons:
     specifier: ^1.1.0
     version: 1.1.0(solid-js@1.8.16)
@@ -672,10 +669,6 @@ packages:
       solid-js: ^1.8.6
     dependencies:
       solid-js: 1.8.16
-    dev: false
-
-  /@studio-freight/lenis@1.0.42:
-    resolution: {integrity: sha512-HJAGf2DeM+BTvKzHv752z6Z7zy6bA643nZM7W88Ft9tnw2GsJSp6iJ+3cekjyMIWH+cloL2U9X82dKXgdU8kPg==}
     dev: false
 
   /@types/babel__core@7.20.5:
