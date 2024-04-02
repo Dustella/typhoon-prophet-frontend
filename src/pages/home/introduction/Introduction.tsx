@@ -43,7 +43,7 @@ const Index = () => {
   })
 
   return (
-    <div class="h-screen bg-slate-800">
+    <div class="min-h-screen bg-slate-800">
       <div class="f-full flex flex-col items-center text-white">
         <div class="pt-8 pb-4 font-bold text-4xl">模型介绍</div>
         <ul class="timeline pb-10">
@@ -71,9 +71,9 @@ const Index = () => {
             }
           </For>
         </ul>
-        <div class="card w-96 bg-slate-600 shadow-xl">
+        <div class="card max-w-4xl bg-slate-600 shadow-xl my-6">
           <figure>
-            <img class="w-96 h-52 object-cover" src={ models[curModel()].img } alt="#" />
+            <img class="w-full object-cover" src={ models[curModel()].img } alt="#" />
           </figure>
           <div class="card-body">
             <div class="collapse" onClick={handleToggleDesc}>
