@@ -62,10 +62,8 @@ const Index: Component<{
         center: [140, 15],
         layers: [new AMap.TileLayer.Satellite(),new AMap.TileLayer.RoadNet()],
       });
-      // const rang1 =new AMap.Lnglat(100, 0);
-      // const rang2 =new AMap.Lnglat(180, 30);
-      // const bounds = new AMap.Bounds(rang1,rang2);
-      // map.setLimitBounds(bounds);
+      var bounds = map.getBounds();
+      map.setLimitBounds(bounds);
 
       const copyright = document.querySelector(
         ".amap-copyright"
