@@ -13,7 +13,7 @@ export const Header = () => {
           <a class="btn btn-ghost text-xl" href="/source">数据来源</a>
           <a class="btn btn-ghost text-xl" href="/introduction">模型介绍</a>
           <a class="btn btn-ghost text-xl" href="/forecast">台风预报</a>
-          <a class="btn btn-ghost text-xl" href="/comparison">现有对比</a>
+          <a class="btn btn-ghost text-xl" href="/comparison">案例对比</a>
         </div>
         <div class="navbar-end"></div>
       </div>

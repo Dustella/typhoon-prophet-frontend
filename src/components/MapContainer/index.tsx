@@ -59,8 +59,8 @@ const Index: Component<{
 
       map = new AMap.Map("amap-container", {
         zoom: 4.5,
-        center: [105.602725, 37.076636],
-        layers: [new AMap.TileLayer.Satellite()],
+        center: [140, 15],
+        layers: [new AMap.TileLayer.Satellite(),new AMap.TileLayer.RoadNet()],
       });
 
       const copyright = document.querySelector(
@@ -71,8 +71,7 @@ const Index: Component<{
       copyright.style.fontSize = "20px";
       copyright.style.lineHeight = "10px";
       copyright.innerHTML = `
-      地图审图号 GS(2023)4677号 卫星图片审图号 GS(2023)4047号 测绘资质证号
-          甲测资字11111093
+      地图审图号 GS(2023)4677号 卫星图片审图号 GS(2023)4047号 测绘资质证号 甲测资字11111093
       `;
 
       // const imageLayer = new AMap.ImageLayer({

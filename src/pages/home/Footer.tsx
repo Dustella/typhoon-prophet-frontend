@@ -41,10 +41,6 @@ export const Footer = () => {
             S2S Project
           </a>
         </nav>
-        <nav>
-          地图审图号 GS(2023)4677号<br></br> 卫星图片审图号 GS(2023)4047号
-          <br></br> 测绘资质证号 甲测资字11111093
-        </nav>
         <nav class="grid grid-flow-col gap-4">
           <img
             src={DatabaseLogo}
