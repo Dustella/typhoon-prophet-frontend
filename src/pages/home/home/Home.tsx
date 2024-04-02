@@ -1,5 +1,5 @@
 import bgVideo from "../../../assets/backguround.mp4"
-import exampleImg from "../../../assets/Authoritativeness.png"
+import earthImg from "../../../assets/earth.jpg"
 
 const Index = () => {
   return (
@@ -14,24 +14,22 @@ const Index = () => {
       </div>
       <div class="hero p-10 bg-slate-800">
         <div class="hero-content flex-col lg:flex-row">
-          <img src={exampleImg} alt="#" class="max-w-xs rounded-lg shadow-2xl" />
+          <img src={earthImg} alt="#" class="max-w-xs rounded-lg shadow-2xl" />
           <div>
-            <h1 class="text-4xl font-bold">标题</h1>
+            <h1 class="text-4xl font-bold">多种预报</h1>
             <ul class="p-6 list-disc">
-              <li class="py-2">第一个内容</li>
-              <li class="py-2">第一个内容</li>
+              <li class="py-2">支持多种预报模式在前端的渲染，更方便融合与决策</li>
             </ul>
           </div>
         </div>
       </div>
       <div class="hero p-10 bg-slate-800">
         <div class="hero-content flex-col lg:flex-row-reverse">
-          <img src={exampleImg} alt="#" class="max-w-xs rounded-lg shadow-2xl" />
+          <img src={earthImg} alt="#" class="max-w-xs rounded-lg shadow-2xl" />
           <div>
-            <h1 class="text-4xl font-bold">标题</h1>
+            <h1 class="text-4xl font-bold">理论基础</h1>
             <ul class="p-6 list-disc">
-              <li class="py-2">第一个内容</li>
-              <li class="py-2">第一个内容</li>
+              <li class="py-2">基于多篇论文的参考与研究，给出更科学的预报结果</li>
             </ul>
           </div>
         </div>
