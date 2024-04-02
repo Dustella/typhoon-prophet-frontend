@@ -11,11 +11,11 @@ const Index = () => {
   const [currentDate, setCurrentDate] = createSignal("2017_10_12");
 
   return (
-    <div class=" bg-slate-800">
-      <div class="f-full flex flex-col items-center ">
+    <div class="h-screen bg-slate-800">
+      <div class="h-auto flex flex-col items-center ">
         <div class="pt-8 pb-4 font-bold text-4xl text-white">台风预报</div>
         <div class="w-[80rem] flex items-center flex-row justify-center mx-auto">
-          <select 
+          <select
             class="mx-1.5 select w-full max-w-xs"
             title="ss"
             onChange={(e) => {
@@ -38,7 +38,7 @@ const Index = () => {
             </For>
           </select>
           <select
-            class="mx-1.5 select w-full max-w-xs"
+            class="mx-1.5 select w-full max-w-xs "
             title="ss"
             onChange={(e) => {
               setCurrentDate(e.target.value);
@@ -49,14 +49,13 @@ const Index = () => {
             </For>
           </select>
         </div>
-        <main class="w-[80rem] h-[50rem] mx-auto">
+        <main class="w-[80rem] h-[50rem] mx-auto text-white">
           <MapContainer
             date={currentDate()}
             day={currentDay()}
             model={currentModel()}
           />
         </main>
-        <div class="text-center">1</div>
       </div>
     </div>
   );
