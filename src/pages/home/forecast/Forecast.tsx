@@ -11,7 +11,7 @@ const Index = () => {
   const [currentDate, setCurrentDate] = createSignal("2017_10_12");
 
   return (
-    <div class="h-screen bg-slate-800">
+    <div class="min-h-screen bg-slate-800">
       <div class="h-auto flex flex-col items-center ">
         <div class="pt-8 pb-4 font-bold text-4xl text-white">台风预报</div>
         <div class="w-[80rem] flex items-center flex-row justify-center mx-auto">
