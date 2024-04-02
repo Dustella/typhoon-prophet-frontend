@@ -3,11 +3,9 @@ import {
   onCleanup,
   Component,
   createEffect,
-  on,
   createMemo,
 } from "solid-js";
 import AMapLoader from "@amap/amap-jsapi-loader";
-import climate_data from "../../assets/climate_data.json";
 
 const Index: Component<{
   date: string;
