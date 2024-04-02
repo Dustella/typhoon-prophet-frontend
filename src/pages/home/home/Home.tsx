@@ -1,6 +1,6 @@
 import bgVideo from "../../../assets/backguround.mp4"
 import earthImg from "../../../assets/earth.jpg"
-
+import stone from "../../../assets/stone.jpg"
 const Index = () => {
   return (
     <div class="min-h-screen relative text-white">
@@ -25,7 +25,7 @@ const Index = () => {
       </div>
       <div class="hero p-10 bg-slate-800">
         <div class="hero-content flex-col lg:flex-row-reverse">
-          <img src={earthImg} alt="#" class="max-w-xl rounded-lg shadow-2xl" />
+          <img src={stone} alt="#" class="max-w-xl rounded-lg shadow-2xl" />
           <div class="mx-6">
             <h1 class="text-4xl font-bold">理论基础</h1>
             <ul class="p-6 list-disc">
