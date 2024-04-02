@@ -63,6 +63,18 @@ const Index: Component<{
         layers: [new AMap.TileLayer.Satellite()],
       });
 
+      const copyright = document.querySelector(
+        ".amap-copyright"
+      ) as HTMLDivElement;
+      copyright.style.display = "block";
+      copyright.style.color = "white";
+      copyright.style.fontSize = "20px";
+      copyright.style.lineHeight = "1`0px";
+      copyright.innerHTML = `
+      地图审图号 GS(2023)4677号 卫星图片审图号 GS(2023)4047号 测绘资质证号
+          甲测资字11111093
+      `;
+
       // const imageLayer = new AMap.ImageLayer({
       //   url: `/src/assets/example_climate.png`,
       //   bounds: new AMap.Bounds([100, 0], [180, 30]),
