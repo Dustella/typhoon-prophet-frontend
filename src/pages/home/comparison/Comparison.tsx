@@ -107,7 +107,7 @@ const Index = () => {
             </div>
             <div class="p-2">
               <div class="text-xl font-semibold p-4">- 不足</div>
-              <p>与实际还是有一定出入，需要继续优化到大概一致才能投入到生产生活当中</p>
+              <p>概率覆盖的范围较广，需要缩小提高可视化体验</p>
             </div>
           </div>
         </div>

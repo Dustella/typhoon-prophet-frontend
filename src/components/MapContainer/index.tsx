@@ -113,7 +113,7 @@ const Index: Component<{
 
   return (
     <>
-      <h1>{props.date}</h1>
+      {/* <h1>{props.date}</h1> */}
       <div id="amap-container" class="p-0 m-0 w-full h-full"></div>
     </>
   );
