@@ -9,6 +9,9 @@ const Index = () => {
   const [currentDay, setCurrentDay] = createSignal("1");
   const [currentModel, setCurrentModel] = createSignal("cma");
   const [currentDate, setCurrentDate] = createSignal("2017_10_12");
+  const [currentMode, setCurrentMode] = createSignal<"image" | "heatmap">(
+    "image"
+  );
 
   return (
     <div class="min-h-screen bg-slate-800">
@@ -48,12 +51,24 @@ const Index = () => {
               {(item) => <option>{item}</option>}
             </For>
           </select>
+          <select
+            class="mx-1.5 select w-full max-w-xs "
+            title="ss"
+            onChange={(e) => {
+              setCurrentMode(e.target.value as "image" | "heatmap");
+            }}
+          >
+            <For each={["heatmap", "image"]}>
+              {(item) => <option>{item}</option>}
+            </For>
+          </select>
         </div>
         <main class="w-[80rem] h-[50rem] mx-auto text-white">
           <MapContainer
             date={currentDate()}
             day={currentDay()}
             model={currentModel()}
+            mode={currentMode()}
           />
         </main>
       </div>
