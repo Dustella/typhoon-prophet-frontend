@@ -21,6 +21,14 @@ const Index: Component<{
 
   let amap_instance: any = null;
 
+  const showLnglatHandler = (e: any) => {
+    new amap_instance.InfoWindow({
+      content: (
+        <div class="text-black p-2">{e.lnglat.lng}, {e.lnglat.lat}</div>
+      ),
+    }).open(map, e.lnglat);
+  }
+
   const day = createMemo(() => props.day);
   const date = createMemo(() => props.date);
   const model = createMemo(() => props.model);
@@ -102,6 +110,8 @@ const Index: Component<{
       copyright.innerHTML = `
       地图审图号：GS(2023)4677号 卫星图片审图号：GS(2023)4047号 测绘资质证号：甲测资字11111093
       `;
+
+      map.on("click", showLnglatHandler)
     } catch (e) {
       console.log(e);
     }
