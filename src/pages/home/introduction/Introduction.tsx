@@ -25,7 +25,7 @@ const Index = () => {
     {
       label: "第三代模型",
       img: DesignModel,
-      name: "自设计模型",
+      name: "Inception Generator模型",
       desc: "考虑到台风预测的发展与时间也有关系，于是加入了时间输入，但是UNet在加入时间输入后容易过拟合，于是重新设计了新的模型。新的模型使用两层InceptionBlock来提取特征，再将特征进行融合，参考了谷歌的Inception网络结构，并行学习特征，减少了模型的复杂度，避免模型学习上过拟合",
     },
   ]

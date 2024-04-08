@@ -93,7 +93,7 @@ const Index: Component<{
       amap_instance = AMap;
 
       map = new AMap.Map("amap-container", {
-        zoom: 4.5,
+        zoom: 4,
         center: [140, 15],
         layers: [new AMap.TileLayer.Satellite(), new AMap.TileLayer.RoadNet()],
       });
