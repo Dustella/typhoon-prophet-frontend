@@ -217,7 +217,7 @@ const Index = () => {
 								setCurrentMode(e.target.value as "image" | "heatmap");
 							}}
 						>
-							<For each={["heatmap", "image"]}>
+							<For each={["image", "heatmap"]}>
 								{(item) => <option>{item}</option>}
 							</For>
 						</select>
