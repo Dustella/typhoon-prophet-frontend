@@ -156,7 +156,7 @@ const Index = () => {
 				<div class="w-[80rem] flex items-center flex-row justify-center mx-auto my-4">
 					<label class="form-control w-full max-w-xs">
 						<div class="label">
-							<span class="label-text flex items-center">
+							<span class="label-text flex items-center text-white">
 								<TbBrain class="mx-2" />
 								预测模型
 							</span>
@@ -175,7 +175,7 @@ const Index = () => {
 					</label>
 					<label class="form-control w-full max-w-xs">
 						<div class="label">
-							<span class="label-text flex items-center">
+							<span class="label-text flex items-center text-white">
 								<FaSolidDatabase class="mx-2" />
 								数据来源日期
 							</span>
@@ -196,7 +196,7 @@ const Index = () => {
 					</label>
 					<label class="form-control w-full max-w-xs">
 						<div class="label">
-							<div class="label-text flex items-center">
+							<div class="label-text flex items-center text-white">
 								<IoCalendar class="mx-2" />
 								预测日期
 							</div>
@@ -221,7 +221,7 @@ const Index = () => {
 					</label>
 					<label class="form-control w-full max-w-xs">
 						<div class="label">
-							<span class="label-text flex items-center">
+							<span class="label-text flex items-center text-white">
 								<FaSolidEye class="mx-2" />
 								显示模式
 							</span>
