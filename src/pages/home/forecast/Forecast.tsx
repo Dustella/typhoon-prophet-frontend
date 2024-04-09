@@ -62,7 +62,6 @@ const Index = () => {
 
 		// Calculate the distance between the current date and the selected date
 		const startDate = new Date(currentDate().replace(/_/g, "-"));
-		console.log(startDate, d);
 		const diff = (
 			(d.getTime() - startDate.getTime()) /
 			(1000 * 60 * 60 * 24)
@@ -73,8 +72,6 @@ const Index = () => {
 		setDateString(
 			`${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()} \(${diff}天后\)`
 		);
-
-		console.log(diff);
 	};
 
 	const setDate = (d: Date) => {
