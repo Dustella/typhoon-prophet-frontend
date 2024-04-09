@@ -2,6 +2,10 @@ import { For, createResource, createSignal } from "solid-js";
 import MapContainer from "../../../components/MapContainer";
 import { SimpleDatepicker } from "solid-simple-datepicker";
 import "solid-simple-datepicker/styles.css";
+import { FaSolidBrain, FaSolidDatabase, FaSolidEye } from "solid-icons/fa";
+import { IoCalendar } from "solid-icons/io";
+import { TbBrain } from "solid-icons/tb";
+import { BiSolidBrain } from "solid-icons/bi";
 
 const getMeta = async () =>
 	await fetch("https://tc-backend.dustella.net/meta").then((a) => a.json());
@@ -153,7 +157,10 @@ const Index = () => {
 				<div class="w-[80rem] flex items-center flex-row justify-center mx-auto my-4">
 					<label class="form-control w-full max-w-xs">
 						<div class="label">
-							<span class="label-text">预测模型</span>
+							<span class="label-text flex items-center">
+								<TbBrain class="mx-2" />
+								预测模型
+							</span>
 						</div>
 						<select
 							id="modelSelect"
@@ -169,9 +176,11 @@ const Index = () => {
 					</label>
 					<label class="form-control w-full max-w-xs">
 						<div class="label">
-							<span class="label-text">数据来源日期</span>
+							<span class="label-text flex items-center">
+								<FaSolidDatabase class="mx-2" />
+								数据来源日期
+							</span>
 						</div>
-
 						<select
 							id="dateSelect"
 							class="mx-1.5 select select-bordered"
@@ -187,7 +196,12 @@ const Index = () => {
 						</select>
 					</label>
 					<label class="form-control w-full max-w-xs">
-						<div class="label label-text">预测日期</div>
+						<div class="label">
+							<div class="label-text flex items-center">
+								<IoCalendar class="mx-2" />
+								预测日期
+							</div>
+						</div>
 						<details class="dropdown" id="dateSelector">
 							<summary class="items-center select select-bordered w-full">
 								{dateString()}
@@ -208,7 +222,10 @@ const Index = () => {
 					</label>
 					<label class="form-control w-full max-w-xs">
 						<div class="label">
-							<span class="label-text">显示模式</span>
+							<span class="label-text flex items-center">
+								<FaSolidEye class="mx-2" />
+								显示模式
+							</span>
 						</div>
 						<select
 							id="modeSelect"
