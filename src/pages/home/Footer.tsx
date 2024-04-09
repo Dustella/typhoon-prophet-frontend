@@ -56,6 +56,7 @@ export const Footer = () => {
             src={GithubLogo}
             class="w-6 h-6 fill-current"
             alt="github-logo"
+            onClick={() => window.open("https://github.com/Dustella/typhoon-prophet-frontend")}
           />
         </nav>
         <nav class="grid grid-flow-col gap-4">
