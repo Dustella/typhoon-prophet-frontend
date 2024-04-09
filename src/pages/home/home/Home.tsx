@@ -16,15 +16,13 @@ const Index = () => {
 			<div class="h-screen flex flex-col items-center justify-center">
 				<span class="text-3xl py-6">季节内至季节尺度</span>
 				<h1 class="text-5xl font-bold">台风集成预报系统</h1>
-				<div
+				<a
 					class="btn my-8"
-					onClick={() => {
-						window.location.href = "/forecast";
-					}}
+					href="/forecast"
 				>
 					<div>开始更早更准确的台风预报</div>
 					<FaSolidPlay class="mx-1" />
-				</div>
+				</a>
 			</div>
 			<div class="hero p-10 bg-slate-800">
 				<div class="hero-content flex-col lg:flex-row">
