@@ -2,10 +2,9 @@ import { For, createResource, createSignal } from "solid-js";
 import MapContainer from "../../../components/MapContainer";
 import { SimpleDatepicker } from "solid-simple-datepicker";
 import "solid-simple-datepicker/styles.css";
-import { FaSolidBrain, FaSolidDatabase, FaSolidEye } from "solid-icons/fa";
+import { FaSolidDatabase, FaSolidEye } from "solid-icons/fa";
 import { IoCalendar } from "solid-icons/io";
 import { TbBrain } from "solid-icons/tb";
-import { BiSolidBrain } from "solid-icons/bi";
 
 const getMeta = async () =>
 	await fetch("https://tc-backend.dustella.net/meta").then((a) => a.json());
