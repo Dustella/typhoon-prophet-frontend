@@ -154,7 +154,7 @@ const Index = () => {
 			)
 		);
 
-		updateData();
+		onDateFooterDone();
 	};
 
 	const [playButtonText, setPlayButtonText] = createSignal("开始");
