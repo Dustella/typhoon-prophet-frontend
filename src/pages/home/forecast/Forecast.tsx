@@ -319,7 +319,7 @@ const Index = () => {
 					</label>
 				</div>
 				<progress
-					class="w-[80rem] progress invisible"
+					class="w-[80rem] progress progress-info invisible"
 					value={playProgress()}
 					max="29"
 					id="playProgress"
