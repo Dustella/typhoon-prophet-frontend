@@ -2,9 +2,16 @@ import { For, createResource, createSignal } from "solid-js";
 import MapContainer from "../../../components/MapContainer";
 import { SimpleDatepicker } from "solid-simple-datepicker";
 import "solid-simple-datepicker/styles.css";
-import { FaSolidDatabase, FaSolidEye } from "solid-icons/fa";
+import {
+	FaSolidClockRotateLeft,
+	FaSolidDatabase,
+	FaSolidEye,
+	FaSolidPause,
+	FaSolidPlay,
+} from "solid-icons/fa";
 import { IoCalendar } from "solid-icons/io";
 import { TbBrain } from "solid-icons/tb";
+import { IconTypes } from "solid-icons";
 
 const getMeta = async () =>
 	await fetch("https://tc-backend.dustella.net/meta").then((a) => a.json());
@@ -60,9 +67,11 @@ const Index = () => {
 		// Close the dropdown menu
 		const dateSelector = document.getElementById("dateSelector");
 		dateSelector?.removeAttribute("open");
+		updateData();
+	};
 
+	const updateData = () => {
 		const d = date();
-
 		// Calculate the distance between the current date and the selected date
 		const startDate = new Date(currentDate().replace(/_/g, "-"));
 		const diff = (
@@ -145,15 +154,67 @@ const Index = () => {
 			)
 		);
 
-		// Call the onDateFooterDone to update the date string
-		onDateFooterDone();
+		updateData();
+	};
+
+	const [playButtonText, setPlayButtonText] = createSignal("开始");
+	const [playButtonIcon, setPlayButtonIcon] =
+		createSignal<IconTypes>(FaSolidPlay);
+	const [playProgress, setPlayProgress] = createSignal(0);
+	let playInterval: number | null = null;
+
+	const handlePlayButtonClick = () => {
+		const playButton = document.getElementById("playButton");
+		const playProgress = document.getElementById("playProgress");
+		if (playButton) {
+			if (playButtonText() === "开始") {
+				if (playProgress) {
+					playProgress.classList.remove("invisible");
+					setPlayProgress(0);
+
+					playInterval = setInterval(() => {
+						setPlayProgress((prev) => {
+							if (prev < 29) {
+								const startDate = new Date(currentDate().replace(/_/g, "-"));
+								const d = new Date(startDate);
+								d.setDate(startDate.getDate() + prev + 1);
+								setDate(d);
+								updateData();
+								return prev + 1;
+							} else {
+								if (playInterval) {
+									clearInterval(playInterval);
+								}
+
+								playProgress.classList.add("invisible");
+								setPlayButtonText("开始");
+								setPlayButtonIcon(() => FaSolidPlay);
+								return 0;
+							}
+						});
+					}, 1000);
+				}
+				setPlayButtonText("停止");
+				setPlayButtonIcon(() => FaSolidPause);
+			} else {
+				setPlayProgress(0);
+				if (playProgress) {
+					playProgress.classList.add("invisible");
+				}
+				if (playInterval) {
+					clearInterval(playInterval);
+				}
+				setPlayButtonText("开始");
+				setPlayButtonIcon(() => FaSolidPlay);
+			}
+		}
 	};
 
 	return (
 		<div class="min-h-screen bg-slate-800">
 			<div class="h-auto flex flex-col items-center ">
 				<div class="pt-8 pb-4 font-bold text-4xl text-white">台风预报</div>
-				<div class="w-[80rem] flex items-center flex-row justify-center mx-auto my-4">
+				<div class="w-[80rem] flex items-center flex-row justify-center mx-auto">
 					<label class="form-control w-full max-w-xs">
 						<div class="label">
 							<span class="label-text flex items-center text-white">
@@ -238,7 +299,31 @@ const Index = () => {
 							</For>
 						</select>
 					</label>
+					<label class="form-control w-full max-w-xs">
+						<div class="label">
+							<span class="label-text flex items-center text-white">
+								<FaSolidClockRotateLeft class="mx-2" />
+								自动播放
+							</span>
+						</div>
+						<div class="mx-1.5">
+							<button
+								class="btn w-full"
+								onclick={handlePlayButtonClick}
+								id="playButton"
+							>
+								{playButtonText()}
+								{playButtonIcon()({ class: "ml-2" })}
+							</button>
+						</div>
+					</label>
 				</div>
+				<progress
+					class="w-[80rem] progress invisible"
+					value={playProgress()}
+					max="29"
+					id="playProgress"
+				></progress>
 				<main class="w-[80rem] h-[50rem] mx-auto text-white my-4">
 					<MapContainer
 						date={currentDate()}
