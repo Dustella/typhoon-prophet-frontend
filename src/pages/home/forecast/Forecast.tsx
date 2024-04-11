@@ -46,7 +46,8 @@ const DateSelectorLocale = {
 const Index = () => {
 	const [metadata] = createResource(getMeta);
 	const [currentDay, setCurrentDay] = createSignal("1");
-	const [currentModel, setCurrentModel] = createSignal("ensemble");
+	// const [currentModel, setCurrentModel] = createSignal("ensemble");
+	const currentModel = () => "ensemble";
 	const [currentDate, setCurrentDate] = createSignal("2017_10_12");
 	const [currentMode, setCurrentMode] = createSignal<"image" | "heatmap">(
 		"image"

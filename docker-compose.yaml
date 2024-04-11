@@ -1,0 +1,5 @@
+services:
+  typhoon-frontend:
+    build: .
+    ports:
+      - "8089:80"
