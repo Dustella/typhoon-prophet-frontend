@@ -31,7 +31,7 @@ const Index = () => {
 						<h1 class="text-4xl font-bold">多种预报</h1>
 						<ul class="p-6 list-disc">
 							<li class="py-2">
-								支持多种预报模式在前端的渲染，更方便融合与决策
+								支持多种预报模式的展示，更方便融合与决策
 							</li>
 						</ul>
 					</div>
