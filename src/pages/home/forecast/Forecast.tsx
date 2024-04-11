@@ -10,7 +10,6 @@ import {
 	FaSolidPlay,
 } from "solid-icons/fa";
 import { IoCalendar } from "solid-icons/io";
-import { TbBrain } from "solid-icons/tb";
 import { IconTypes } from "solid-icons";
 
 const backendAddr = import.meta.env.VITE_BACKEND_ADDR;
@@ -47,7 +46,7 @@ const DateSelectorLocale = {
 const Index = () => {
 	const [metadata] = createResource(getMeta);
 	const [currentDay, setCurrentDay] = createSignal("1");
-	const [currentModel, setCurrentModel] = createSignal("cma");
+	const [currentModel, setCurrentModel] = createSignal("ensemble");
 	const [currentDate, setCurrentDate] = createSignal("2017_10_12");
 	const [currentMode, setCurrentMode] = createSignal<"image" | "heatmap">(
 		"image"
@@ -86,6 +85,9 @@ const Index = () => {
 		setDateString(
 			`${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()} \(${diff}天后\)`
 		);
+
+		// Update the predict string
+		updatePredictString();
 	};
 
 	const setDate = (d: Date) => {
@@ -212,12 +214,28 @@ const Index = () => {
 		}
 	};
 
+	const [predictString, setPredictString] = createSignal<string>(
+		"在经度 118°E 纬度 20°N 有 86.67% 的概率发生台风"
+	);
+	const updatePredictString = () => fetch(
+		`${backendAddr}/get_center?day=${currentDay()}&date=${currentDate()}&model=${currentModel()}`
+	)
+		.then((a) => a.json())
+		.then((data) => {
+			const rate = ((data.count ?? 233) / 255) * 100;
+			setPredictString(
+				`在经度 ${data.lng}°E 纬度 ${data.lat}°N 有 ${rate.toFixed(
+					2
+				)}% 的概率发生台风`
+			);
+		});
+
 	return (
 		<div class="min-h-screen bg-slate-800">
 			<div class="h-auto flex flex-col items-center ">
-				<div class="pt-8 pb-4 font-bold text-4xl text-white">台风预测</div>
+				<div class="pt-8 pb-4 font-bold text-4xl text-white">台风预报</div>
 				<div class="w-[80rem] flex items-center flex-row justify-center mx-auto">
-					<label class="form-control w-full max-w-xs">
+					{/* <label class="form-control w-full max-w-xs">
 						<div class="label">
 							<span class="label-text flex items-center text-white">
 								<TbBrain class="mx-2" />
@@ -235,7 +253,7 @@ const Index = () => {
 								{(item) => <option>{item}</option>}
 							</For>
 						</select>
-					</label>
+					</label> */}
 					<label class="form-control w-full max-w-xs">
 						<div class="label">
 							<span class="label-text flex items-center text-white">
@@ -334,6 +352,14 @@ const Index = () => {
 						mode={currentMode()}
 					/>
 				</main>
+				<div class="h-[10rem] bg-slate-600 shadow-xl mb-4 w-[80rem] flex items-left shadow-xl rounded-lg">
+					<div class="card w-full text-white">
+						<div class="card-body">
+							<div class="class-title font-bold text-xl">台风预报结果</div>
+							<p>{predictString()}</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
