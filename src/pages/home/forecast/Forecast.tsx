@@ -13,8 +13,10 @@ import { IoCalendar } from "solid-icons/io";
 import { TbBrain } from "solid-icons/tb";
 import { IconTypes } from "solid-icons";
 
+const backendAddr = import.meta.env.VITE_BACKEND_ADDR;
+
 const getMeta = async () =>
-	await fetch("https://tc-backend.dustella.net/meta").then((a) => a.json());
+	await fetch(`${backendAddr}/meta`).then((a) => a.json());
 
 const DateSelectorLocale = {
 	sun: "天",
@@ -213,7 +215,7 @@ const Index = () => {
 	return (
 		<div class="min-h-screen bg-slate-800">
 			<div class="h-auto flex flex-col items-center ">
-				<div class="pt-8 pb-4 font-bold text-4xl text-white">台风预报</div>
+				<div class="pt-8 pb-4 font-bold text-4xl text-white">台风预测</div>
 				<div class="w-[80rem] flex items-center flex-row justify-center mx-auto">
 					<label class="form-control w-full max-w-xs">
 						<div class="label">

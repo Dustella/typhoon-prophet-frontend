@@ -17,12 +17,13 @@ const Index: Component<{
 	let heatmap: any = null;
 	let imageLayer: any = null;
 
-	const api_key = import.meta.env.VITE_AMAP_API_KEY;
+	const apiKey = import.meta.env.VITE_AMAP_API_KEY;
+	const backendAddr = import.meta.env.VITE_BACKEND_ADDR;
 
-	let amap_instance: any = null;
+	let amapInstance: any = null;
 
 	const showLnglatHandler = (e: any) => {
-		new amap_instance.InfoWindow({
+		new amapInstance.InfoWindow({
 			content: (
 				<div class="text-black p-2">
 					{e.lnglat.lng}, {e.lnglat.lat}
@@ -42,7 +43,7 @@ const Index: Component<{
 		currentModel: string,
 		currentMode: string
 	) => {
-		if (amap_instance == null) {
+		if (amapInstance == null) {
 			// Sleep for 100ms and retry
 			setTimeout(() => {
 				updateMap(currentDay, currentDate, currentModel, currentMode);
@@ -55,9 +56,9 @@ const Index: Component<{
 				if (heatmap) {
 					heatmap.hide();
 				}
-				const image = new amap_instance.ImageLayer({
-					url: `https://tc-backend.dustella.net/plot?day=${currentDay}&date=${currentDate}&model=${currentModel}`,
-					bounds: new amap_instance.Bounds([100, -15], [180, 45]),
+				const image = new amapInstance.ImageLayer({
+					url: `${backendAddr}/plot?day=${currentDay}&date=${currentDate}&model=${currentModel}`,
+					bounds: new amapInstance.Bounds([100, -15], [180, 45]),
 					zIndex: 2,
 					opacity: 0.7,
 					// zooms: [15, 20],
@@ -77,7 +78,7 @@ const Index: Component<{
 					imageLayer.hide();
 				}
 				fetch(
-					`https://tc-backend.dustella.net/heatmap?day=${currentDay}&date=${currentDate}&model=${currentModel}`
+					`${backendAddr}/heatmap?day=${currentDay}&date=${currentDate}&model=${currentModel}`
 				)
 					.then((a) => a.json())
 					.then((data) => {
@@ -87,7 +88,7 @@ const Index: Component<{
 						map.plugin(["AMap.HeatMap"], function () {
 							// 在地图对象叠加热力图
 
-							heatmap = new amap_instance.HeatMap(map, {
+							heatmap = new amapInstance.HeatMap(map, {
 								radius: 100, //给定半径
 								opacity: [0, 0.8],
 							});
@@ -115,11 +116,11 @@ const Index: Component<{
 	onMount(async () => {
 		try {
 			const AMap = await AMapLoader.load({
-				key: api_key,
+				key: apiKey,
 				version: "2.0",
 				plugins: [""],
 			});
-			amap_instance = AMap;
+			amapInstance = AMap;
 
 			map = new AMap.Map("amap-container", {
 				zoom: 4,

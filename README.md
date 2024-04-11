@@ -12,6 +12,7 @@ $ pnpm install # or npm install or yarn install
 
 ```text
 VITE_AMAP_API_KEY=你的 APIKEY
+VITE_BACKEND_ADDR=你的 后端地址
 ```
 
 ## 开发
