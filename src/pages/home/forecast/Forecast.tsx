@@ -243,7 +243,7 @@ const Index = () => {
 						<div class="label">
 							<span class="label-text flex items-center text-white">
 								<TbBrain class="mx-2" />
-								预测模型
+								预报模型
 							</span>
 						</div>
 						<select
@@ -283,7 +283,7 @@ const Index = () => {
 						<div class="label">
 							<div class="label-text flex items-center text-white">
 								<IoCalendar class="mx-2" />
-								预测日期
+								预报日期
 							</div>
 						</div>
 						<details class="dropdown" id="dateSelector">

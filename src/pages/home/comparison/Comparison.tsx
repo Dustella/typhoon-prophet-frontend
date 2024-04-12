@@ -103,7 +103,7 @@ const Index = () => {
           <div class="p-2">
             <div class="p-2">
               <div class="text-xl font-semibold p-4">- 优势</div>
-              <p>从对比案例来看，最终预测的位置与实际位置偏离不大，并且也超过了大部分的模型</p>
+              <p>从对比案例来看，最终预报的位置与实际位置偏离不大，并且也超过了大部分的模型</p>
             </div>
             <div class="p-2">
               <div class="text-xl font-semibold p-4">- 不足</div>
