@@ -216,20 +216,23 @@ const Index = () => {
 	};
 
 	const [predictString, setPredictString] = createSignal<string>(
-		"在经度 118°E 纬度 20°N 有 86.67% 的概率发生台风"
+		"在坐标经度 118°E 纬度 20°N 的 500 公里范围内 有 86.67% 的概率发生台风"
 	);
-	const updatePredictString = () => fetch(
-		`${backendAddr}/get_center?day=${currentDay()}&date=${currentDate()}&model=${currentModel()}`
-	)
-		.then((a) => a.json())
-		.then((data) => {
-			const rate = ((data.count ?? 233) / 255) * 100;
-			setPredictString(
-				`在经度 ${data.lng}°E 纬度 ${data.lat}°N 有 ${rate.toFixed(
-					2
-				)}% 的概率发生台风`
-			);
-		});
+	const updatePredictString = () =>
+		fetch(
+			`${backendAddr}/get_center?day=${currentDay()}&date=${currentDate()}&model=${currentModel()}`
+		)
+			.then((a) => a.json())
+			.then((data) => {
+				const rate = ((data.count ?? 233) / 255) * 100;
+				let displayString = `在坐标经度 ${data.lng}°E 纬度 ${
+					data.lat
+				}°N 的 500 公里范围内有 ${rate.toFixed(2)}% 的概率出现台风`;
+				if (rate < 60) {
+					displayString += "，出现台风的概率较低";
+				}
+				setPredictString(displayString);
+			});
 
 	return (
 		<div class="min-h-screen bg-slate-800">
