@@ -38,6 +38,9 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('pnpm-lock.yaml') }}
 
       - name: Install dependency and build
+        env:
+          VITE_BACKEND_ADDR: ${{ env.VITE_BACKEND_ADDR }}
+          VITE_AMAP_API_KEY: ${{ env.VITE_AMAP_API_KEY }}
         run: |
           corepack enable
           pnpm i
@@ -57,7 +60,7 @@ jobs:
   deploy-cloudbase:
     needs: build
     runs-on: ubuntu-latest
-    name: Deploy Cloudbase
+    name: Deploy COS
     steps:
       - name: Cache node modules
         id: cache-npm
