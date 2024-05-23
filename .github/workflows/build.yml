@@ -43,16 +43,13 @@ jobs:
           pnpm i
           pnpm build
 
-      - name: Upload GhPages Artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: ./.vitepress/dist
+
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: dist
-          path: ./.vitepress/dist
+          path: ./dist
           retention-days: 1
 
 
