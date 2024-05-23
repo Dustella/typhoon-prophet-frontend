@@ -1,8 +1,8 @@
 const Source = () => {
   return (
-    <div class=" py-[5rem] ">
-      <div class="h-full max-w-[980px] mx-auto py-30 flex flex-col items-center shadow-2xl p-10">
-        <h1 class="text-4xl p-4">数据来源</h1>
+    <div class=" py-[5rem] bg-[#f1f1f1]">
+      <div class="bg-slate-50 h-full max-w-[980px] mx-auto py-30 flex flex-col items-center shadow-2xl p-10">
+        <h1 class="text-4xl p-4 font-bold">数据来源</h1>
         <p class="p-4">
           2013 年，世界气象组织世界天气研究计划 ( WMO / WWRP)
           联合世界气候研究计划（WCRP）启动了其三大核心计划之一的季节内到季节预测计划（S2S计划）。S2S
