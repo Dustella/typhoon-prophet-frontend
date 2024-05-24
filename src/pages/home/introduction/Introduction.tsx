@@ -59,6 +59,17 @@ const Index = () => {
               UNet，或者现代的基于 Transformer
               的各种生成式模型，在面对极少量的S2S台风数据集时，都会遇到极为严重的过拟合问题。
             </p>
+            <p>
+              <a
+                class="link"
+                rel="noreferrer noopener"
+                target="_blank"
+                href="https://s1-cdn.dustella.net/%E4%BD%99%E7%BF%B0%E6%96%87%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%EF%BC%88%E6%AF%94%E8%B5%9B%E7%94%A8%EF%BC%89.pdf"
+              >
+                完整论文
+              </a>
+            </p>
+
             <div>
               <img src={arch} alt="" />
             </div>
