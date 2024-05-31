@@ -1,7 +1,7 @@
 const Source = () => {
   return (
-    <div class=" py-[5rem] bg-[#f1f1f1]">
-      <div class="bg-slate-50 h-full max-w-[980px] mx-auto py-30 flex flex-col items-center shadow-2xl p-10">
+    <div class=" py-[5rem] bg-slate-800">
+      <div class="bg-slate-600 text-white rounded-3xl h-full max-w-[980px] mx-auto py-30 flex flex-col items-center shadow-2xl p-10">
         <h1 class="text-4xl p-4 font-bold">数据来源</h1>
         <p class="p-4">
           2013 年，世界气象组织世界天气研究计划 ( WMO / WWRP)
@@ -9,13 +9,13 @@ const Source = () => {
           计划自 2013 年启动至今， 已进入了第二个执行期（2018 年 11 月—2023 年
           12 月）。
         </p>
-        <p class="p-4">
+        <p class="p-4">/typhoon-backend
           本文的<strong>预报数据</strong>
           使用世界气象组织S2S预测计划中比较有效的几种模式。多个模式对于同一天的预报的集合我们称为多模式预报，多模式预报是本文模型的主要输入。S2S计划第二阶段从2015年开始，其中各预报机构不仅发布实时的预报，也发布对过去20年的重报。
         </p>
         <table class="table ">
           <thead>
-            <tr class="font-bold">
+            <tr class="font-bold text-white">
               <th>中文名称</th>
               <th>英文全称</th>
               <th>简称</th>
@@ -87,7 +87,7 @@ const Source = () => {
         </p>
         <table class="table">
           <thead>
-            <tr class="font-bold">
+            <tr class="font-bold text-white">
               <th>模式简称</th>
               <th>预报时效（天）</th>
               <th>预报频次</th>

@@ -123,8 +123,8 @@ const Index: Component<{
 			amapInstance = AMap;
 
 			map = new AMap.Map("amap-container", {
-				zoom: 4,
-				center: [140, 15],
+				zoom: 5,
+				center: [130, 17],
 				layers: [new AMap.TileLayer.Satellite(), new AMap.TileLayer.RoadNet()],
 			});
 			var bounds = map.getBounds();

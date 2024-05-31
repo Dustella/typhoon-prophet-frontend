@@ -49,9 +49,9 @@ const Index = () => {
   });
 
   return (
-    <div class="min-h-screen bg-[#f1f1f1]">
-      <div class="f-full text-[#0f0f0f] py-20">
-        <div class="max-w-[980px] mx-auto shadow-2xl flex flex-col items-center p-10 bg-slate-50">
+    <div class="min-h-screen bg-slate-800">
+      <div class="f-full text-white py-20">
+        <div class="max-w-[980px] mx-auto shadow-2xl rounded-3xl flex flex-col items-center p-10 bg-slate-600">
           <div class="pt-4 font-bold text-4xl text-center">模型介绍</div>
           <div class="max-w-[980px] pt-10">
             <p class="py-3">
@@ -71,7 +71,7 @@ const Index = () => {
             </p>
 
             <div>
-              <img src={arch} alt="" />
+              <img src={arch} alt="" class="rounded-3xl my-5" />
             </div>
             <p class="py-3">
               为此，本方法通过两种方法提高预报性能。首先，本方法提出了一种轻量化的网络
