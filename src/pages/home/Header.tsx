@@ -21,10 +21,10 @@ export const Header = () => {
         </div>
         <div class="navbar-end md:hidden">
           <details class={`dropdown dropdown-end ${isOpen() ? 'open' : ''}`}>
-            <summary class="m-1 btn" onClick={() => setIsOpen(!isOpen())}>
+            <summary class="m-1 btn bg-slate-700 text-white border-0" onClick={() => setIsOpen(!isOpen())}>
               {isOpen() ? <VsClose /> : <VsMenu />}
             </summary>
-            <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52 absolute">
+            <ul class="p-2 shadow menu dropdown-content z-[1] bg-slate-700 text-white rounded-box w-52 absolute ">
               <li><a class="btn btn-ghost text-xl" href="/">首页</a></li>
               <li><a class="btn btn-ghost text-xl" href="/source">数据来源</a></li>
               <li><a class="btn btn-ghost text-xl" href="/introduction">模型介绍</a></li>
