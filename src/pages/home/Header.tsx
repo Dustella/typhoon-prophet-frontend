@@ -8,11 +8,11 @@ export const Header = () => {
   return (
     <>
       <div class="navbar bg-slate-900 text-white shadow-md fixed justify-between top-0 z-50">
-        <div class="navbar-start ps-4 w-full">
+        <div class="navbar-start ps-4 w-full md:w-auto">
           <RiWeatherTyphoonFill color="#4b81ee" size="3rem" />
           <span class="text-xl">台风集成预报系统</span>
         </div>
-        <div class="navbar-center hidden md:flex">
+        <div class="navbar-center hidden md:flex justify-center">
           <a class="btn btn-ghost text-xl" href="/">首页</a>
           <a class="btn btn-ghost text-xl" href="/source">数据来源</a>
           <a class="btn btn-ghost text-xl" href="/introduction">模型介绍</a>
@@ -33,7 +33,7 @@ export const Header = () => {
             </ul>
           </details>
         </div>
-        <div class="navbar-end hidden md:flex"></div>
+        <div class="navbar-end hidden md:flex w-auto"></div>
       </div>
     </>
   );
