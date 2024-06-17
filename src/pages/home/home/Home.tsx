@@ -14,21 +14,27 @@ const Index = () => {
 				<source src={bgVideo} type="video/mp4" />
 			</video>
 			<div class="h-screen flex flex-col items-center justify-center">
-				<span class="text-4xl font-bold py-4 flex items-center">
+				<span class="text-4xl font-bold py-4 md:flex items-center hidden">
 					捕<div class="text-5xl">「风」</div>捉影
 					<hr class="ml-2 mr-[25rem] w-[10rem] h-[5px] bg-white rounded-lg" />
 				</span>
-				<h1 class="text-4xl font-bold">
+				<h1 class="text-4xl font-bold md:flex hidden">
 					<div class="ml-[15rem]">季节内至季节尺度台风集成预报系统</div>
 				</h1>
+				<div class="text-4xl font-bold md:hidden mb-4">
+					捕「风」捉影
+				</div>
+				<div class="text-2xl font-bold md:hidden">
+					季节内至季节尺度台风集成预报系统
+				</div>
 				<a class="btn my-8" href="/forecast">
 					<div>开始更早更准确的台风预报</div>
 					<FaSolidPlay class="mx-1" />
 				</a>
 			</div>
-			<div class="hero p-10 bg-slate-800">
+			<div class="hero md:p-10 bg-slate-800">
 				<div class="hero-content flex-col lg:flex-row">
-					<img src={earthImg} alt="#" class="max-w-xl rounded-lg shadow-2xl" />
+					<img src={earthImg} alt="#" class="md:max-w-xl rounded-lg shadow-2xl" />
 					<div class="mx-6">
 						<h1 class="text-4xl font-bold">多种预报</h1>
 						<ul class="p-6 list-disc">
@@ -37,9 +43,9 @@ const Index = () => {
 					</div>
 				</div>
 			</div>
-			<div class="hero p-10 bg-slate-800">
+			<div class="hero md:p-10 bg-slate-800">
 				<div class="hero-content flex-col lg:flex-row-reverse">
-					<img src={stone} alt="#" class="max-w-xl rounded-lg shadow-2xl" />
+					<img src={stone} alt="#" class="md:max-w-xl rounded-lg shadow-2xl" />
 					<div class="mx-6">
 						<h1 class="text-4xl font-bold">理论基础</h1>
 						<ul class="p-6 list-disc">

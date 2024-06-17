@@ -238,7 +238,7 @@ const Index = () => {
 		<div class="min-h-screen bg-slate-800">
 			<div class="h-auto flex flex-col items-center ">
 				<div class="pt-8 pb-4 font-bold text-4xl text-white">台风预报</div>
-				<div class="w-[80rem] flex items-center flex-row justify-center mx-auto">
+				<div class="w-full md:w-[80rem] flex items-center flex-col md:flex-row justify-center mx-auto">
 					{/* <label class="form-control w-full max-w-xs">
 						<div class="label">
 							<span class="label-text flex items-center text-white">
@@ -258,7 +258,7 @@ const Index = () => {
 							</For>
 						</select>
 					</label> */}
-					<label class="form-control w-full max-w-xs">
+					<label class="form-control w-full md:max-w-xs">
 						<div class="label">
 							<span class="label-text flex items-center text-white">
 								<FaSolidDatabase class="mx-2" />
@@ -279,14 +279,14 @@ const Index = () => {
 							</For>
 						</select>
 					</label>
-					<label class="form-control w-full max-w-xs">
+					<label class="form-control w-full md:max-w-xs">
 						<div class="label">
 							<div class="label-text flex items-center text-white">
 								<IoCalendar class="mx-2" />
 								预报日期
 							</div>
 						</div>
-						<details class="dropdown" id="dateSelector">
+						<details class="dropdown px-[0.4rem] md:px-0" id="dateSelector">
 							<summary class="items-center select select-bordered w-full">
 								{dateString()}
 							</summary>
@@ -304,7 +304,7 @@ const Index = () => {
 							</div>
 						</details>
 					</label>
-					<label class="form-control w-full max-w-xs">
+					<label class="form-control w-full md:max-w-xs">
 						<div class="label">
 							<span class="label-text flex items-center text-white">
 								<FaSolidEye class="mx-2" />
@@ -323,7 +323,7 @@ const Index = () => {
 							</For>
 						</select>
 					</label>
-					<label class="form-control w-full max-w-xs">
+					<label class="form-control w-full md:max-w-xs">
 						<div class="label">
 							<span class="label-text flex items-center text-white">
 								<FaSolidClockRotateLeft class="mx-2" />
@@ -343,12 +343,12 @@ const Index = () => {
 					</label>
 				</div>
 				<progress
-					class="w-[80rem] progress progress-info invisible"
+					class="w-full md:w-[80rem] progress progress-info invisible"
 					value={playProgress()}
 					max="29"
 					id="playProgress"
 				></progress>
-				<main class="w-[80rem] h-[50rem] mx-auto text-white my-4">
+				<main class="w-full h-[30rem] md:w-[80rem] md:h-[50rem] mx-auto text-white my-4">
 					<MapContainer
 						date={currentDate()}
 						day={currentDay()}
@@ -356,7 +356,7 @@ const Index = () => {
 						mode={currentMode()}
 					/>
 				</main>
-				<div class="h-[10rem] bg-slate-600 shadow-xl mb-4 w-[80rem] flex items-left shadow-xl rounded-lg">
+				<div class="h-[10rem] bg-slate-600 shadow-xl mb-4 w-full md:w-[80rem] flex items-left rounded-lg">
 					<div class="card w-full text-white">
 						<div class="card-body">
 							<div class="class-title font-bold text-xl">台风预报结果</div>

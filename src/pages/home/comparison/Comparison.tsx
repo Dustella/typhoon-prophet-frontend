@@ -5,7 +5,7 @@ const Index = () => {
 	return (
 		<div class="min-h-screen bg-slate-800">
 			<div class="f-full text-white py-20">
-				<div class="max-w-[980px] mx-auto shadow-2xl rounded-3xl flex flex-col items-center p-10 bg-slate-600">
+				<div class="max-w-[980px] mx-auto shadow-2xl rounded-3xl flex flex-col items-center p-2 md:p-10 bg-slate-600">
 					<div class="pt-4 font-bold mb-10 text-4xl text-center">模型对比结果</div>
 					<div class="w-full mx-auto">
 						<div>

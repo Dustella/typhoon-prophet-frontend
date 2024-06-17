@@ -127,8 +127,8 @@ const Index: Component<{
 				center: [130, 17],
 				layers: [new AMap.TileLayer.Satellite(), new AMap.TileLayer.RoadNet()],
 			});
-			var bounds = map.getBounds();
-			map.setLimitBounds(bounds);
+			// var bounds = map.getBounds();
+			// map.setLimitBounds(bounds);
 
 			const copyright = document.querySelector(
 				".amap-copyright"

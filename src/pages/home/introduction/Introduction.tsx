@@ -51,7 +51,7 @@ const Index = () => {
   return (
     <div class="min-h-screen bg-slate-800">
       <div class="f-full text-white py-20">
-        <div class="max-w-[980px] mx-auto shadow-2xl rounded-3xl flex flex-col items-center p-10 bg-slate-600">
+        <div class="max-w-[980px] mx-auto shadow-2xl rounded-3xl flex flex-col items-center p-2 md:p-10 bg-slate-600">
           <div class="pt-4 font-bold text-4xl text-center">模型介绍</div>
           <div class="max-w-[980px] pt-10">
             <p class="py-3">
@@ -81,7 +81,7 @@ const Index = () => {
               的参数，却同样拥有较强的特征捕获能力，获得了比UNet等复杂模型更好的性能。其次，本方法将先验的气候观测、预报时效作为额外通道输入网络。通过历史统计数据，网络有能力对多模式预报结果进行纠偏，去除不该存在的预报值，并加强正确位置的预报。由于预报时效决定了多模式预报内容的可靠性，提供给网络预报时效可以决定预报内容的倾向。
             </p>
           </div>
-          <ul class="timeline pb-10">
+          <ul class="timeline md:timeline-horizontal timeline-vertical pb-10">
             <For each={models}>
               {(item, index) => {
                 let modelsLength = models.length;

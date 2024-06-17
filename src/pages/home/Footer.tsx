@@ -6,7 +6,7 @@ export const Footer = () => {
   return (
     <>
       <footer class="footer footer-center p-5 bg-slate-700 rounded shadow text-white">
-        <nav class="grid grid-flow-col gap-4">
+        <nav class="grid grid-flow-row md:grid-flow-col gap-4">
           <h6 class="font-bold uppercase opacity-60">友情链接</h6>
           <a
             rel="noopener"
