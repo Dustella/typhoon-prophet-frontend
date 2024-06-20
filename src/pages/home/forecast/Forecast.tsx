@@ -262,7 +262,7 @@ const Index = () => {
 						<div class="label">
 							<span class="label-text flex items-center text-white">
 								<FaSolidDatabase class="mx-2" />
-								数据来源日期
+								预报初始日期	
 							</span>
 						</div>
 						<select
