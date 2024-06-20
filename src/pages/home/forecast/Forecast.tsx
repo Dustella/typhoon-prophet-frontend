@@ -75,7 +75,8 @@ const Index = () => {
 	const updateData = () => {
 		const d = date();
 		// Calculate the distance between the current date and the selected date
-		const startDate = new Date(currentDate().replace(/_/g, "-"));
+		const [year, month, day] = currentDate().split("_").map(Number);
+		const startDate = new Date(year, month - 1, day);
 		const diff = (
 			(d.getTime() - startDate.getTime()) /
 			(1000 * 60 * 60 * 24)
@@ -94,7 +95,8 @@ const Index = () => {
 	const setDate = (d: Date) => {
 		_setDate(d);
 
-		const startDate = new Date(currentDate().replace(/_/g, "-"));
+		const [year, month, day] = currentDate().split("_").map(Number);
+		const startDate = new Date(year, month - 1, day);
 		const startDatePlus29 = new Date(startDate);
 		startDatePlus29.setDate(startDate.getDate() + 29);
 		let enabledDays: number[] = [];
@@ -133,14 +135,15 @@ const Index = () => {
 
 	const updateDateSelector = (sourceDate: string) => {
 		// Parse into date type
-		const d = new Date(sourceDate.replace(/_/g, "-"));
+		const [year, month, day] = sourceDate.split("_").map(Number);
+		const d = new Date(year, month - 1, day);
 		const dPlus1 = new Date(d);
 		dPlus1.setDate(d.getDate() + 1);
 		setDate(dPlus1);
 
 		// Calculate the start and end year
-		setStartYear(d.getFullYear());
 		setEndYear(d.getFullYear() + 1);
+		setStartYear(d.getFullYear());
 
 		// Add 29 days to the date and set end year to that year
 		const dPlus29 = new Date(d);
@@ -180,7 +183,8 @@ const Index = () => {
 					playInterval = setInterval(() => {
 						setPlayProgress((prev) => {
 							if (prev < 29) {
-								const startDate = new Date(currentDate().replace(/_/g, "-"));
+								const [year, month, day] = currentDate().split("_").map(Number);
+								const startDate = new Date(year, month - 1, day);
 								const d = new Date(startDate);
 								d.setDate(startDate.getDate() + prev + 1);
 								setDate(d);
@@ -262,7 +266,7 @@ const Index = () => {
 						<div class="label">
 							<span class="label-text flex items-center text-white">
 								<FaSolidDatabase class="mx-2" />
-								预报初始日期	
+								预报初始日期
 							</span>
 						</div>
 						<select
