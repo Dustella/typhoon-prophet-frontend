@@ -48,14 +48,14 @@ const Index = () => {
 	const [currentDay, setCurrentDay] = createSignal("1");
 	// const [currentModel, setCurrentModel] = createSignal("ensemble");
 	const currentModel = () => "ensemble";
-	const [currentDate, setCurrentDate] = createSignal("2017_10_12");
+	const [currentDate, setCurrentDate] = createSignal("2023_10_12");
 	const [currentMode, setCurrentMode] = createSignal<"image" | "heatmap">(
 		"image"
 	);
 
-	const [date, _setDate] = createSignal<Date>(new Date("2017-10-13"));
-	const [startYear, setStartYear] = createSignal(2017);
-	const [endYear, setEndYear] = createSignal(2018);
+	const [date, _setDate] = createSignal<Date>(new Date("2023-10-12"));
+	const [startYear, setStartYear] = createSignal(2023);
+	const [endYear, setEndYear] = createSignal(2024);
 	const [disabledMonths, setDisabledMonths] = createSignal([
 		0, 1, 2, 3, 4, 5, 6, 7, 8, 11,
 	]);
@@ -63,7 +63,7 @@ const Index = () => {
 		1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
 	]);
 	const [dateString, setDateString] =
-		createSignal<string>("2017-10-13 (1天后)");
+		createSignal<string>("2023-10-13 (1天后)");
 
 	const onDateFooterDone = () => {
 		// Close the dropdown menu
