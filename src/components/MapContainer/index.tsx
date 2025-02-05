@@ -12,6 +12,7 @@ const Index: Component<{
   day: string;
   model: string;
   mode: "heatmap" | "image";
+  dummyday?: number;
 }> = (props) => {
   let map: any = null;
   let heatmap: any = null;
@@ -56,11 +57,16 @@ const Index: Component<{
         if (heatmap) {
           heatmap.hide();
         }
+        let url = "result/10.png";
+        if (props.dummyday) {
+          url = `result/${props.dummyday}.png`;
+        }
         const image = new amapInstance.ImageLayer({
-          url: `${backendAddr}/plot?day=${currentDay}&date=${currentDate}&model=${currentModel}`,
-          bounds: new amapInstance.Bounds([100, 0], [180, 30]),
-          zIndex: 2,
-          opacity: 0.7,
+          url,
+          // bounds: new amapInstance.Bounds([30, 0], [180, 30]),
+          bounds: new amapInstance.Bounds([-150, -35], [180, 35]),
+          zIndex: 9,
+          opacity: 1,
           // zooms: [15, 20],
         });
         map.add(image);
@@ -125,8 +131,28 @@ const Index: Component<{
       map = new AMap.Map("amap-container", {
         zoom: 5,
         center: [130, 17],
-        layers: [new AMap.TileLayer.Satellite(), new AMap.TileLayer.RoadNet()],
+        // layers: [
+        /*new AMap.TileLayer.Satellite()*/
+        // new AMap.TileLayer.RoadNet(),
+        // ],
       });
+      //2、创建世界简易行政区图层
+      var distWorld = new AMap.DistrictLayer.World({
+        zIndex: 7, //设置图层层级
+        zooms: [2, 15], //设置图层显示范围
+      });
+
+      //3、设置行政区图层样式
+      distWorld.setStyles({
+        "stroke-width": 2, //描边线宽
+        fill: function (data) {
+          //设置区域填充颜色，可根据回调信息返回区域信息设置不同填充色
+          //回调返回区域信息数据，字段包括 SOC(国家代码)、NAME_ENG(英文名称)、NAME_CHN(中文名称)等
+          //国家代码名称说明参考 https://a.amap.com/jsapi_demos/static/demo-center/js/soc-list.json
+          return "#ffffffe7";
+        },
+      });
+      map.add(distWorld);
       // var bounds = map.getBounds();
       // map.setLimitBounds(bounds);
 
@@ -142,10 +168,57 @@ const Index: Component<{
       `;
 
       map.on("click", showLnglatHandler);
+
+      // 创建地图实例
+
+      // 定义北回归线、赤道和南回归线的路径
+      const tropicOfCancerPath = [
+        new AMap.LngLat(-180, 23.43691),
+        new AMap.LngLat(180, 23.43691),
+      ];
+
+      const equatorPath = [new AMap.LngLat(-180, 0), new AMap.LngLat(180, 0)];
+
+      const tropicOfCapricornPath = [
+        new AMap.LngLat(-180, -23.43691),
+        new AMap.LngLat(180, -23.43691),
+      ];
+
+      // 创建折线实例
+      const tropicOfCancerLine = new AMap.Polyline({
+        path: tropicOfCancerPath,
+        strokeWeight: 2,
+        strokeColor: "red",
+        lineJoin: "round",
+      });
+
+      const equatorLine = new AMap.Polyline({
+        path: equatorPath,
+        strokeWeight: 2,
+        strokeColor: "green",
+        lineJoin: "round",
+      });
+
+      const tropicOfCapricornLine = new AMap.Polyline({
+        path: tropicOfCapricornPath,
+        strokeWeight: 2,
+        strokeColor: "blue",
+        lineJoin: "round",
+      });
+
+      // 将折线添加至地图实例
+      map.add(tropicOfCancerLine);
+      map.add(equatorLine);
+      map.add(tropicOfCapricornLine);
     } catch (e) {
       console.log(e);
     }
   });
+  const targetMovePoint = [104, -3];
+  const setCenter = () => {
+    map.setCenter(targetMovePoint);
+    map.setZoom(4);
+  };
 
   onCleanup(() => {
     map?.destroy();
@@ -154,6 +227,11 @@ const Index: Component<{
   return (
     <>
       {/* <h1>{props.date}</h1> */}
+      <div>
+        <button class="btn w-full py-2" onclick={setCenter}>
+          set center
+        </button>
+      </div>
       <div id="amap-container" class="p-0 m-0 w-full h-full"></div>
     </>
   );

@@ -72,6 +72,8 @@ const Index = () => {
     updateData();
   };
 
+  const [dummyDay, setDummyDay] = createSignal(1);
+
   const updateData = () => {
     const d = date();
     // Calculate the distance between the current date and the selected date
@@ -98,6 +100,7 @@ const Index = () => {
     const [year, month, day] = currentDate().split("_").map(Number);
     const startDate = new Date(year, month - 1, day);
     const startDatePlus29 = new Date(startDate);
+
     startDatePlus29.setDate(startDate.getDate() + 29);
     let enabledDays: number[] = [];
 
@@ -189,6 +192,7 @@ const Index = () => {
                 d.setDate(startDate.getDate() + prev + 1);
                 setDate(d);
                 updateData();
+                setDummyDay((prev + 1) % 30);
                 return prev + 1;
               } else {
                 if (playInterval) {
@@ -262,90 +266,115 @@ const Index = () => {
 							</For>
 						</select>
 					</label> */}
-          <label class="form-control w-full md:max-w-xs">
-            <div class="label">
-              <span class="label-text flex items-center text-white">
-                <FaSolidDatabase class="mx-2" />
-                预报初始日期
-              </span>
+
+          <button class="btn w-full my-3" onClick="my_modal_2.showModal()">
+            打开控制面板2
+          </button>
+          <dialog id="my_modal_2" class="modal">
+            <div class="modal-box">
+              <h3 class="text-lg font-bold">Hello!</h3>
+              <p class="py-4">这里是放识别到的台风和位置，点击能导航过去</p>
             </div>
-            <select
-              id="dateSelect"
-              class="mx-1.5 select select-bordered"
-              onChange={(e) => {
-                setCurrentDate(e.target.value);
-                // Update the date selector
-                updateDateSelector(e.target.value);
-              }}
+            <form method="dialog" class="modal-backdrop">
+              <button>close</button>
+            </form>
+          </dialog>
+          <div class="collapse bg-slate-500">
+            <input type="checkbox" id="controls" />
+            <label
+              for="controls"
+              class="text-white collapse-title text-xl font-medium"
             >
-              <For each={metadata()?.all_dates.sort() ?? []}>
-                {(item) => <option>{item}</option>}
-              </For>
-            </select>
-          </label>
-          <label class="form-control w-full md:max-w-xs">
-            <div class="label">
-              <div class="label-text flex items-center text-white">
-                <IoCalendar class="mx-2" />
-                预报日期
-              </div>
+              点击来展开控制面板
+            </label>
+            <div class="collapse-content">
+              <label class="form-control w-full md:max-w-xs">
+                <div class="label">
+                  <span class="label-text flex items-center text-white">
+                    <FaSolidDatabase class="mx-2" />
+                    预报初始日期
+                  </span>
+                </div>
+                <select
+                  id="dateSelect"
+                  class="mx-1.5 select select-bordered"
+                  onChange={(e) => {
+                    setCurrentDate(e.target.value);
+                    // Update the date selector
+                    updateDateSelector(e.target.value);
+                  }}
+                >
+                  <For each={metadata()?.all_dates.sort() ?? []}>
+                    {(item) => <option>{item}</option>}
+                  </For>
+                </select>
+              </label>
+              <label class="form-control w-full md:max-w-xs">
+                <div class="label">
+                  <div class="label-text flex items-center text-white">
+                    <IoCalendar class="mx-2" />
+                    预报日期
+                  </div>
+                </div>
+                <details class="dropdown px-[0.4rem] md:px-0" id="dateSelector">
+                  <summary class="items-center select select-bordered w-full">
+                    {dateString()}
+                  </summary>
+                  <div class="mx-1.5 dropdown-content z-50">
+                    <SimpleDatepicker
+                      selectedDate={date()}
+                      onChange={setDate}
+                      onFooterDone={onDateFooterDone}
+                      locale={DateSelectorLocale}
+                      startYear={startYear()}
+                      endYear={endYear()}
+                      disabledDays={disabledDays()}
+                      disabledMonths={disabledMonths()}
+                    />
+                  </div>
+                </details>
+              </label>
+              <label class="form-control w-full md:max-w-xs">
+                <div class="label">
+                  <span class="label-text flex items-center text-white">
+                    <FaSolidEye class="mx-2" />
+                    显示模式
+                  </span>
+                </div>
+                <select
+                  id="modeSelect"
+                  class="mx-1.5 select select-bordered"
+                  onChange={(e) => {
+                    setCurrentMode(e.target.value as "image" | "heatmap");
+                  }}
+                >
+                  <For each={["image", "heatmap"]}>
+                    {(item) => <option>{item}</option>}
+                  </For>
+                </select>
+              </label>
+              <label class="form-control w-full md:max-w-xs">
+                <div class="label">
+                  <span class="label-text flex items-center text-white">
+                    <FaSolidClockRotateLeft class="mx-2" />
+                    自动播放
+                  </span>
+                </div>
+                <div class="mx-1.5">
+                  <button
+                    class="btn w-full"
+                    onclick={handlePlayButtonClick}
+                    id="playButton"
+                  >
+                    {playButtonText()}
+                    {playButtonIcon()({ class: "ml-2" })}
+                  </button>
+                </div>
+              </label>
             </div>
-            <details class="dropdown px-[0.4rem] md:px-0" id="dateSelector">
-              <summary class="items-center select select-bordered w-full">
-                {dateString()}
-              </summary>
-              <div class="mx-1.5 dropdown-content z-50">
-                <SimpleDatepicker
-                  selectedDate={date()}
-                  onChange={setDate}
-                  onFooterDone={onDateFooterDone}
-                  locale={DateSelectorLocale}
-                  startYear={startYear()}
-                  endYear={endYear()}
-                  disabledDays={disabledDays()}
-                  disabledMonths={disabledMonths()}
-                />
-              </div>
-            </details>
-          </label>
-          <label class="form-control w-full md:max-w-xs">
-            <div class="label">
-              <span class="label-text flex items-center text-white">
-                <FaSolidEye class="mx-2" />
-                显示模式
-              </span>
-            </div>
-            <select
-              id="modeSelect"
-              class="mx-1.5 select select-bordered"
-              onChange={(e) => {
-                setCurrentMode(e.target.value as "image" | "heatmap");
-              }}
-            >
-              <For each={["image", "heatmap"]}>
-                {(item) => <option>{item}</option>}
-              </For>
-            </select>
-          </label>
-          <label class="form-control w-full md:max-w-xs">
-            <div class="label">
-              <span class="label-text flex items-center text-white">
-                <FaSolidClockRotateLeft class="mx-2" />
-                自动播放
-              </span>
-            </div>
-            <div class="mx-1.5">
-              <button
-                class="btn w-full"
-                onclick={handlePlayButtonClick}
-                id="playButton"
-              >
-                {playButtonText()}
-                {playButtonIcon()({ class: "ml-2" })}
-              </button>
-            </div>
-          </label>
+          </div>
         </div>
+
         <progress
           class="w-full md:w-[80rem] progress progress-info invisible"
           value={playProgress()}
@@ -358,6 +387,7 @@ const Index = () => {
             day={currentDay()}
             model={currentModel()}
             mode={currentMode()}
+            dummyday={dummyDay()}
           />
         </main>
         <div class="h-[10rem] bg-slate-600 shadow-xl mb-4 w-full md:w-[80rem] flex items-left rounded-lg">
